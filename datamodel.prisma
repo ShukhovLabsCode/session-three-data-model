@@ -99,7 +99,7 @@ userLastName: String
 userAge: Int
 userSex: String
 userEmail: String
-userPhone: String
+userPhoneNum: String
 userAdress: String
 userDiscounted: Boolean @default(value: false)
 login: String
