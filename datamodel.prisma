@@ -1,0 +1,147 @@
+type TestObject {
+    id: ID! @id
+    name: String
+}
+
+type Project {
+    id: ID! @id
+    name: String
+    isPublished: Boolean @default(value: false)
+    publishDate: DateTime! @default(value: "2019-01-01")
+    creator: ShukhlovLabStudent @relation(link: INLINE)
+}
+
+type MilkStory {
+	
+id: ID! @id
+storyName: String
+
+}
+
+type MilkUser {
+	id: ID! @id
+
+	firstName: String
+
+}
+
+type ABLEUser {
+
+id: ID! @id 
+userName: String
+userDevice: String 
+}
+
+type ABLEroutes {
+id: ID! @id 
+userLocation: Float 
+}
+
+type Location {
+
+id: ID! @id
+lat: Float
+long: Float
+
+}
+
+type MilkTeaching {
+	
+id: ID! @id
+photoValidation: Boolean
+storyTeller: MilkCompany
+
+}
+type MilkCompany {
+	id: ID! @id
+	photoValidation: Boolean
+	phototoValidate: String
+}
+
+type VDPlant  {
+	
+id: ID! @id
+plantName: String
+farmer: Verdeuser
+}
+
+type Verdeuser {
+	id: ID! @id
+	firstName: String
+}
+
+type ShukhlovLabStudent {
+	id: ID! @id
+	firstName: String
+    lastName: String
+    email: String
+    firstProject: Project
+}
+
+type Flat {
+
+id: ID! @id
+ammountOfRooms: Int
+
+}
+
+type FlatLandlord {
+id: ID! @id
+caller: String
+flat: Flat @relation(link: INLINE)
+
+}
+
+type DRTUser {
+id: ID! @id
+userFirstName: String
+userLastName: String
+userAge: Int
+userSex: String
+userEmail: String
+userPhone: String
+userAdress: String
+userDiscounted: Boolean @default(value: false)
+login: String
+password: String
+userRegistered: DateTime! @default(value: "2019-01-01")
+}
+
+type DRTcredentials {
+id: ID! @id
+owner: DRTUser
+login: Boolean @default(value: true)
+password: Boolean @default(value: true) 
+}
+
+type DRTCall {
+id: ID! @id
+callerDRTUser: Boolean @default(value: true)
+caller: DRTUser
+callAdresstouserAdress: Boolean @default(value: true)
+callAltAdress: Float
+callAltAdressLongitude: Float
+callPeople: Int
+callDate: DateTime! @default(value: "2019-01-01")
+callTime: Int
+}
+
+type DRTFleet {
+fleetID: ID! @id
+fleetType: String
+fleetSeats: Int
+fleetPricePerSeat: Float
+fleetLicencePlate: String
+}
+
+type DRTRoute {
+routeID: ID! @id
+routePass: DRTUser
+routeFleet: DRTFleet
+routeStops: DRTAddress
+}
+
+type DRTAddress {
+id: ID! @id
+addressName: String
+}

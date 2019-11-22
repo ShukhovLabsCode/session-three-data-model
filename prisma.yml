@@ -1,0 +1,3 @@
+endpoint: ${env:PRISMA_END_POINT}
+datamodel:
+- datamodel.prisma
